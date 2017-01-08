@@ -1,0 +1,22 @@
+%% SOM Train
+
+function somTrain (patterns)
+
+    P = size(patterns,2);
+
+    %% ordering
+    
+    neighborDist = maxNeighborDist;
+    neighborDistSpace = 10.^linspace(1, log10(maxNeighborDist), orderSteps);
+    learningRate = orderLR;
+    learningRateSpace = 10.^linspace(1, log10(orderLR), orderSteps);
+    for epoch = 1:orderSteps
+        neighborDist = neighborDistSpace(orderSteps - epoch + 1);
+        neighborDist = lSpace(orderSteps - epoch + 1);
+        for iter = 1:P
+            pattern = pattern(:,iter);
+            somUpdate(pattern, learningRate, neighborDist);
+        end
+    end
+
+end
