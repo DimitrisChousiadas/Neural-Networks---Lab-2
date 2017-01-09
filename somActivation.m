@@ -1,15 +1,15 @@
 %% SOM Activation
 
-function a = somActivation (pattern, neighborDist)
+function [a] = somActivation (pattern, neighborDist)
 
     global N distances;
 
     output = somOutput(pattern);
-    [~,pos] = find(output == 1);
+    [pos,~] = find(output);
 
     a = zeros(N,1);
     for iter = 1:N
-        if (distances(pos,iter) <= neighborDist)
+        if distances(pos,iter) <= neighborDist
             a(iter) = 0.5;
         end
     end

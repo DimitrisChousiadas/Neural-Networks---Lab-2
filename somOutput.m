@@ -1,10 +1,10 @@
 %% SOM Output
 
-function output = somOutput (pattern)
+function [output] = somOutput (pattern)
 
     global IW;
 
-    negdistArr = negdist(IW, pattern);
+    negdistArr = negdist(IW, pattern');
     output = compet(negdistArr);
 
 end

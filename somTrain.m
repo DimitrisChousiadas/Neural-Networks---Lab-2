@@ -8,16 +8,18 @@ function somTrain (patterns)
 
     %% ordering
     
-    neighborDistSpace = 10.^linspace(log10(tuneND), log10(maxNeighborDist), orderSteps);
-    learningRateSpace = 10.^linspace(log10(tuneLR), log10(orderLR), orderSteps);
+    neighborDistSpace = exp(linspace(log(tuneND), log(maxNeighborDist), orderSteps));
+    learningRateSpace = exp(linspace(log(tuneLR), log(orderLR), orderSteps));
     for epoch = 1:orderSteps
         neighborDist = neighborDistSpace(orderSteps - epoch + 1);
         learningRate = learningRateSpace(orderSteps - epoch + 1);
         for iter = 1:P
             pattern = patterns(iter,:);
-            pattern = pattern';
             somUpdate(pattern, learningRate, neighborDist);
         end
+        if (mod(epoch,100)==0)
+            fprintf('Ordering: %d\n', epoch)
+        end 
     end
     
     %% tuning
@@ -28,9 +30,11 @@ function somTrain (patterns)
     for epoch = 1:tuningSteps
         for iter = 1:P
             pattern = patterns(iter,:);
-            pattern = pattern';
             somUpdate(pattern, learningRate, neighborDist);
         end
+        if (mod(epoch,100)==0)
+            fprintf('Tuning: %d\n', epoch)
+        end 
     end
 
 end

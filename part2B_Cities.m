@@ -1,26 +1,27 @@
 % Part 2B - TSP
 
 clear;
-foo = importdata('Cities.m');
-Cities = foo.data;
+clc;
+Cities;
+Patterns = CityCoordinates';
 
 global IW distances;
 
-minimum = min(Cities);
+minimum = min(Patterns);
 minimum = minimum';
-maximum = max(Cities);
+maximum = max(Patterns);
 maximum = maximum';
 minMax = [minimum maximum];
-P = size(Cities,1);
-gridSize = [P 1];
+P = 2*size(Patterns,1);
+gridSize = [9 9];
 somCreate(minMax, gridSize);
 
 setOrderLR = 0.9;
-setOrderSteps = 250;
+setOrderSteps = 500;
 setTuneLR = 0.1;
 somTrainParameters(setOrderLR, setOrderSteps, setTuneLR);
 
-somTrain(Cities);
+somTrain(Patterns);
 
-figure; plot2DSomData(IW, distances, Cities);
+figure; plot2DSomData(IW, distances, Patterns);
 figure;somShow(IW,gridSize);
