@@ -1,4 +1,4 @@
-%% Part 2A - Eight Data
+% Part 2A - Eight Data
 
 clear;
 foo = importdata('EightData.m');

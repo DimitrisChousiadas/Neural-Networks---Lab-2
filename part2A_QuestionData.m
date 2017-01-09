@@ -1,14 +1,14 @@
-%% Part 2A - Eight Data
+% Part 2A - Question Data
 
 clear;
-foo = importdata('EightData.m');
-EightPatterns = foo.data;
+foo = importdata('QuestionData.m');
+QuestionPatterns = foo.data;
 
-global IW distances
+global IW distances;
 
-minimum = min(EightPatterns);
+minimum = min(QuestionPatterns);
 minimum = minimum';
-maximum = max(EightPatterns);
+maximum = max(QuestionPatterns);
 maximum = maximum';
 minMax = [minimum maximum];
 gridSize = [10 10];
@@ -19,8 +19,7 @@ setOrderSteps = 250;
 setTuneLR = 0.1;
 somTrainParameters(setOrderLR, setOrderSteps, setTuneLR);
 
-somTrain(EightPatterns);
+somTrain(QuestionPatterns);
 
-figure; plot2DSomData(IW, distances, EightPatterns);
-
+figure; plot2DSomData(IW, distances, QuestionPatterns);
 figure;somShow(IW,gridSize);
