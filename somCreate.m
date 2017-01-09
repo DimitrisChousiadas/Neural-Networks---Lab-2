@@ -17,6 +17,6 @@ for i = 1:N,
 end
 
 % positions = hexagonalTopology(neuronsPerRow,neuronsPerColumn);
-positions = gridtop(neuronsPerRow,neuronsPerColumn);
+% positions = gridtop(neuronsPerRow,neuronsPerColumn);
 % distances = dist(positions);
 distances = ring_distances(N);
