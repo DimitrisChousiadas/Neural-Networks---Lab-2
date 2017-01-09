@@ -2,7 +2,9 @@
 
 function somTrain (patterns)
 
-    P = size(patterns,2);
+    global maxNeighborDist tuneND orderLR orderSteps tuneLR;
+
+    P = size(patterns,1);
 
     %% ordering
     
@@ -12,7 +14,8 @@ function somTrain (patterns)
         neighborDist = neighborDistSpace(orderSteps - epoch + 1);
         learningRate = learningRateSpace(orderSteps - epoch + 1);
         for iter = 1:P
-            pattern = pattern(:,iter);
+            pattern = patterns(iter,:);
+            pattern = pattern';
             somUpdate(pattern, learningRate, neighborDist);
         end
     end
@@ -24,7 +27,8 @@ function somTrain (patterns)
     learningRate = tuneLR;
     for epoch = 1:tuningSteps
         for iter = 1:P
-            pattern = pattern(:,iter);
+            pattern = patterns(iter,:);
+            pattern = pattern';
             somUpdate(pattern, learningRate, neighborDist);
         end
     end

@@ -2,6 +2,8 @@
 
 function a = somActivation (pattern, neighborDist)
 
+    global N distances;
+
     output = somOutput(pattern);
     [~,pos] = find(output == 1);
 
