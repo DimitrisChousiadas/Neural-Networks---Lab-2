@@ -22,4 +22,8 @@ somTrainParameters(setOrderLR, setOrderSteps, setTuneLR);
 somTrain(QuestionPatterns);
 
 figure; plot2DSomData(IW, distances, QuestionPatterns);
+saveas(gcf,'results/question/question_44_plot.png');
 figure;somShow(IW,gridSize);
+saveas(gcf,'results/question/question_44_umatrix.png');
+
+save('results/question/question_44.mat');

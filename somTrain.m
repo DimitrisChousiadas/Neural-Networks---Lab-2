@@ -8,11 +8,14 @@ function somTrain (patterns)
 
     %% ordering
     
-    neighborDistSpace = exp(linspace(log(tuneND), log(maxNeighborDist), orderSteps));
-    learningRateSpace = exp(linspace(log(tuneLR), log(orderLR), orderSteps));
+    log_nd = log(tuneND/maxNeighborDist);
+    log_lr = log(tuneLR/orderLR);
+    neighborDistSpace = maxNeighborDist*exp(linspace(log_nd/orderSteps, log_nd, orderSteps));
+    learningRateSpace = orderLR*exp(linspace(log_lr/orderSteps, log_lr, orderSteps));
+ 
     for epoch = 1:orderSteps
-        neighborDist = neighborDistSpace(orderSteps - epoch + 1);
-        learningRate = learningRateSpace(orderSteps - epoch + 1);
+        neighborDist = neighborDistSpace(epoch);
+        learningRate = learningRateSpace(epoch);
         for iter = 1:P
             pattern = patterns(iter,:);
             somUpdate(pattern, learningRate, neighborDist);
@@ -24,7 +27,7 @@ function somTrain (patterns)
     
     %% tuning
     
-    tuningSteps = 3*orderSteps;
+    tuningSteps = 2*orderSteps;
     neighborDist = tuneND;
     learningRate = tuneLR;
     for epoch = 1:tuningSteps

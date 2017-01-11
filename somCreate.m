@@ -17,9 +17,16 @@ for i = 1:N,
     IW(i,:) = rand(1,dimensions).*(maxFeatureValues-minFeatureValues)+minFeatureValues;
 end
 
-% positions = hexagonalTopology(neuronsPerRow,neuronsPerColumn);
-% positions = gridtop(neuronsPerRow,neuronsPerColumn);
-% distances = dist(positions);
-distances = ring_distances(N);
+%positions = hexagonalTopology(neuronsPerRow,neuronsPerColumn);
+%positions = gridtop(neuronsPerRow,neuronsPerColumn);
+%positions = randtop(neuronsPerRow,neuronsPerColumn);
+positions = hextop(neuronsPerRow,neuronsPerColumn);
+
+%distances = dist(positions);
+%distances = mandist(positions);
+%distances = linkdist(positions);
+distances = boxdist(positions);
+
+% distances = ring_distances(N);
 
 end

@@ -22,4 +22,8 @@ somTrainParameters(setOrderLR, setOrderSteps, setTuneLR);
 somTrain(EightPatterns);
 
 figure; plot2DSomData(IW, distances, EightPatterns);
+saveas(gcf,'results/eight/eight_44_plot.png');
 figure;somShow(IW,gridSize);
+saveas(gcf,'results/eight/eight_44_umatrix.png');
+
+save('results/eight/eight_44.mat');

@@ -2,7 +2,7 @@ global distances IW positions;
 close all;
 clc;
 clear;
-load('./SOM-2017/SOM-2017/NIPS500.mat')
+%load('./SOM-2017/SOM-2017/NIPS500.mat')
 EightData
 %GroupData
 %QuestionData
