@@ -4,7 +4,6 @@ clc;
 clear;
 
 load('NIPS500.mat');
-global IW;
 
 weights = tfidf1(Patterns);
 weights = full(weights);
@@ -23,8 +22,5 @@ setTuneLR = 0.1;
 somTrainParameters(setOrderLR, setOrderSteps, setTuneLR);
 
 somTrain(weights);
-IW_toSave = IW;
-figure;somShow(IW,gridSize);
-saveas(gcf,'results/part3/part3_umatrix.png');
 
 save('results\part3\part3.mat');
