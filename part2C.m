@@ -29,4 +29,9 @@ saveas(gcf,'results/group/group_plot.png');
 figure;somShow(IW,gridSize);
 saveas(gcf,'results/group/group_umatrix.png');
 
+num_ones = size(find(Patterns(:,3)),1);
+num_threes = size(find(Patterns(:,3) == 0),1);
+neurons_one = size(find(IW(:,3)>=0.5),1);
+neurons_three = size(find(IW(:,3)<0.5),1);
+
 save('results/group/group.mat');
