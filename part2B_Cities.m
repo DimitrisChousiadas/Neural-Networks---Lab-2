@@ -12,7 +12,6 @@ minimum = minimum';
 maximum = max(Patterns);
 maximum = maximum';
 minMax = [minimum maximum];
-P = 2*size(Patterns,1);
 gridSize = [9 9];
 somCreate(minMax, gridSize);
 
@@ -24,4 +23,8 @@ somTrainParameters(setOrderLR, setOrderSteps, setTuneLR);
 somTrain(Patterns);
 
 figure; plot2DSomData(IW, distances, Patterns);
+saveas(gcf,'results/cities/cities_plot.png');
 figure;somShow(IW,gridSize);
+saveas(gcf,'results/cities/cities_umatrix.png');
+
+save('results/cities/cities.mat');

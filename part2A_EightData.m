@@ -15,15 +15,15 @@ gridSize = [10 10];
 somCreate(minMax, gridSize);
 
 setOrderLR = 0.9;
-setOrderSteps = 250;
+setOrderSteps = 500;
 setTuneLR = 0.1;
 somTrainParameters(setOrderLR, setOrderSteps, setTuneLR);
 
 somTrain(EightPatterns);
 
 figure; plot2DSomData(IW, distances, EightPatterns);
-saveas(gcf,'results/eight/eight_44_plot.png');
+saveas(gcf,'results/eight/eight_13_plot.png');
 figure;somShow(IW,gridSize);
-saveas(gcf,'results/eight/eight_44_umatrix.png');
+saveas(gcf,'results/eight/eight_13_umatrix.png');
 
-save('results/eight/eight_44.mat');
+save('results/eight/eight_13.mat');

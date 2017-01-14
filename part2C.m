@@ -22,7 +22,11 @@ somTrainParameters(setOrderLR, setOrderSteps, setTuneLR);
 
 somTrain(Patterns);
 
-a=figure();
-scatter3(Patterns(:,1),Patterns(:,2),Patterns(:,3));
+figure; scatter3(Patterns(:,1),Patterns(:,2),Patterns(:,3));
+saveas(gcf,'results/group/group_scatter.png');
 figure; plot2DSomData(IW, distances, Patterns);
+saveas(gcf,'results/group/group_plot.png');
 figure;somShow(IW,gridSize);
+saveas(gcf,'results/group/group_umatrix.png');
+
+save('results/group/group.mat');
