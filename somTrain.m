@@ -27,7 +27,7 @@ function somTrain (patterns)
     
     %% tuning
     
-    tuningSteps = 4*orderSteps;
+    tuningSteps = 2*orderSteps;
     neighborDist = tuneND;
     learningRate = tuneLR;
     for epoch = 1:tuningSteps
